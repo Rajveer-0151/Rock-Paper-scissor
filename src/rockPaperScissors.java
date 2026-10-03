@@ -60,13 +60,11 @@ public class rockPaperScissors {
         String inputOption;
         String computerOption;
 
-        int input = 0;
+        int input=0;
         int random;
         int userCount = 0;
         int computerCount = 0;
-        char again;
-        boolean playAgain = true;
-        while (userCount < z / 2 + 1 && computerCount < z / 2 + 1) {
+        while (userCount < z / 2 + 1 && computerCount < z / 2 + 1)  {
             boolean chossenOption = true;
             while (chossenOption) {
                 if (sc.hasNextInt()) {
@@ -97,7 +95,9 @@ public class rockPaperScissors {
                         System.out.println("You won the round");
                         userCount++;
                         chossenOption = false;
-
+                        if (userCount >= z / 2 + 1) {
+                            break;
+                        }
                     } else if (computerChoice == 1 && input == 3 ||
                             computerChoice == 2 && input == 1 ||
                             computerChoice == 3 && input == 2) {
@@ -108,6 +108,10 @@ public class rockPaperScissors {
                         System.out.println("you lose the round");
                         chossenOption = false;
                         computerCount++;
+                        if (computerCount >= z / 2 + 1) {
+                            break;
+                        }
+
                     }
 
                 } else {
@@ -117,27 +121,6 @@ public class rockPaperScissors {
 
                 }
 
-            }
-            System.out.println("Do you want to play again");
-            while (playAgain) {
-
-                System.out.println("Enter(Y/N)");
-                again = sc.nextLine().toLowerCase().charAt(0);
-                if (again == 'y' || again == 'n') {
-                    if (again == 'y') {
-                        chossenOption = true;
-
-                    } else if (again=='n') {
-                        playAgain = false;
-                        System.out.println("Thanks for playing");
-
-                    }else {
-                        System.out.println("Invalid Input");
-
-
-
-                }
-                System.out.println("Please enter (Y/N)");
             }
         }
         if (userCount > computerCount) {
@@ -152,4 +135,4 @@ public class rockPaperScissors {
 
         }
     }
-}}
+}
